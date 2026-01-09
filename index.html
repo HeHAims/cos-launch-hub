@@ -27,14 +27,42 @@
     }
 
     .hero {
-      padding: 60px 20px;
+      position: relative;
+      height: 400px;
+      overflow: hidden;
       text-align: center;
-      background: url('your-background.jpg') center/cover no-repeat;
+    }
+
+    .hero video {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 0;
+      opacity: 0.5;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      padding: 60px 20px;
     }
 
     .hero h1 {
       font-size: 3rem;
       margin-bottom: 10px;
+    }
+
+    .hero button {
+      padding: 12px 24px;
+      background-color: red;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      font-weight: bold;
+      cursor: pointer;
     }
 
     .section {
@@ -49,17 +77,107 @@
     }
 
     .card {
+      display: block;
       background-color: #222;
       border: 1px solid #444;
       padding: 20px;
       width: 200px;
       text-align: center;
       border-radius: 8px;
-      transition: transform 0.2s;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      text-decoration: none;
+      color: #fff;
+      font-weight: bold;
     }
 
     .card:hover {
       transform: scale(1.05);
+    }
+
+    .card.glow:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 20px 4px red;
+    }
+
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      max-width: 400px;
+      margin: 0 auto;
+      background-color: #1a1a1a;
+      padding: 20px;
+      border-radius: 8px;
+      border: 1px solid #333;
+      animation: fadeInUp 1s ease forwards;
+    }
+
+    .contact-form label {
+      margin-top: 10px;
+      font-weight: bold;
+    }
+
+    .contact-form input,
+    .contact-form textarea,
+    .contact-form select {
+      margin-top: 5px;
+      padding: 10px;
+      background-color: #222;
+      color: #fff;
+      border: 1px solid #444;
+      border-radius: 4px;
+    }
+
+    .contact-form button {
+      margin-top: 20px;
+      padding: 12px;
+      background-color: red;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      font-weight: bold;
+      cursor: not-allowed;
+      opacity: 0.6;
+    }
+
+    .disclaimer {
+      font-size: 0.8rem;
+      color: #888;
+      text-align: center;
+      margin-top: 10px;
+    }
+
+    #darkModeBtn {
+      display: block;
+      margin: 20px auto 0;
+      padding: 10px 16px;
+      background-color: #111;
+      color: #fff;
+      border: 1px solid red;
+      border-radius: 4px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .dark-mode {
+      background-color: #eee;
+      color: #111;
+    }
+
+    .dark-mode .card {
+      background-color: #ddd;
+      color: #111;
+      border: 1px solid #999;
+    }
+
+    @keyframes fadeInUp {
+      0% {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
     footer {
@@ -76,31 +194,48 @@
   <header>
     COS - Continental Operation Services
     <nav>
-      <a href="#">Home</a>
-      <a href="#">Brands</a>
-      <a href="#">Services</a>
-      <a href="#">Contact</a>
+      <a href="#top">Home</a>
+      <a href="#brands">Brands</a>
+      <a href="#services">Services</a>
+      <a href="#contact">Contact</a>
     </nav>
   </header>
 
-  <div class="hero">
-    <h1>Your Hub for Promotions, Music, Events & More</h1>
-    <p><button>GET IN TOUCH</button></p>
+  <button onclick="toggleDarkMode()" id="darkModeBtn">Toggle Dark Mode</button>
+
+  <div class="hero" id="top">
+    <video autoplay muted loop>
+      <source src="background.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+    <div class="hero-content">
+      <h1>Your Hub for Promotions, Music, Events & More</h1>
+      <p><button>GET IN TOUCH</button></p>
+    </div>
   </div>
 
-  <section class="section">
+  <section class="section" id="brands">
     <h2>Explore Our Brands</h2>
     <div class="cards">
-      <div class="card">COS Motors</div>
-      <div class="card">COS Promotions</div>
-      <div class="card">COS Music Group</div>
-      <div class="card">COS Underdogs</div>
-      <div class="card">Sin City Movement</div>
-      <div class="card">Team COS</div>
+      <a href="#" class="card glow">COS Motors</a>
+      <a href="#" class="card glow">COS Promotions</a>
+      <a href="#" class="card glow">COS Music Group</a>
+      <a href="#" class="card glow">COS Underdogs</a>
+      <a href="#" class="card glow">Sin City Movement</a>
+      <a href="#" class="card glow">Team COS</a>
     </div>
   </section>
 
-  <section class="section">
+  <section class="section counters">
+    <h2>COS Impact Stats</h2>
+    <div class="cards">
+      <div class="card counter" data-target="127">Bookings</div>
+      <div class="card counter" data-target="54">Artists Signed</div>
+      <div class="card counter" data-target="89">Vehicles Sold</div>
+    </div>
+  </section>
+
+  <section class="section" id="services">
     <h2>Services & Bookings</h2>
     <div class="cards">
       <div class="card">Product Sales</div>
@@ -110,9 +245,43 @@
     </div>
   </section>
 
+  <section class="section contact" id="contact">
+    <h2>Contact COS</h2>
+    <form class="contact-form">
+      <label for="name">Name</label>
+      <input type="text" id="name" name="name" placeholder="Your name">
+
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" placeholder="you@domain.com">
+
+      <label for="service">Service Type</label>
+      <select id="service" name="service">
+        <option>Motors</option>
+        <option>Music</option>
+        <option>Promotions</option>
+        <option>Underdogs</option>
+        <option>Sin City Movement</option>
+        <option>Other</option>
+      </select>
+
+      <label for="message">Message</label>
+      <textarea id="message" name="message" rows="4" placeholder="Tell us what you're building..."></textarea>
+
+      <button type="submit" disabled>Send Message</button>
+      <p class="disclaimer">* This is a demo. Submissions not enabled yet.</p>
+    </form>
+    <p class="disclaimer">Prefer to talk? Contact Mr. COS directly: <strong>702-627-1196</strong></p>
+  </section>
+
   <footer>
     &copy; COS 2026 - All Rights Reserved
   </footer>
+
+  <script>
+    function toggleDarkMode() {
+      document.body.classList.toggle("dark-mode");
+    }
+  </script>
 
 </body>
 </html>
