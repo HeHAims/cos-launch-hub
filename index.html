@@ -281,6 +281,43 @@
     function toggleDarkMode() {
       document.body.classList.toggle("dark-mode");
     }
+
+    const counters = document.querySelectorAll(".counter");
+    let countersAnimated = false;
+
+    function animateCounters() {
+      counters.forEach((counter) => {
+        counter.innerText = "0";
+        const target = Number(counter.getAttribute("data-target"));
+        const increment = Math.ceil(target / 50);
+
+        const update = () => {
+          const current = Number(counter.innerText);
+          if (current < target) {
+            counter.innerText = `${Math.min(current + increment, target)}`;
+            setTimeout(update, 20);
+          }
+        };
+        update();
+      });
+    }
+
+    function isInViewport(el) {
+      const rect = el.getBoundingClientRect();
+      return rect.top < window.innerHeight && rect.bottom >= 0;
+    }
+
+    function checkCounters() {
+      const section = document.querySelector(".counters");
+      if (!section) return;
+      if (!countersAnimated && isInViewport(section)) {
+        animateCounters();
+        countersAnimated = true;
+      }
+    }
+
+    window.addEventListener("scroll", checkCounters);
+    window.addEventListener("load", checkCounters);
   </script>
 
 </body>
