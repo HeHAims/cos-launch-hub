@@ -2,222 +2,322 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>COS Visual Summary</title>
+  <title>Symbiotic COS Motors</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
   <style>
+    :root {
+      --bg: #0a0a0a;
+      --panel: #141414;
+      --panel-2: #1b1b1b;
+      --text: #f5f5f5;
+      --muted: #b9b9b9;
+      --accent: #e51d24;
+      --accent-soft: #ffcc00;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       margin: 0;
-      font-family: Arial, sans-serif;
-      background-color: #111;
-      color: #f5f5f5;
-      line-height: 1.6;
+      font-family: 'Source Sans 3', sans-serif;
+      color: var(--text);
+      background: radial-gradient(circle at top right, #1d1d1d 0%, #0a0a0a 55%);
+      min-height: 100vh;
     }
 
-    header {
-      background-color: #000;
-      padding: 20px;
-      text-align: center;
-      font-size: 1.25rem;
-      border-bottom: 3px solid red;
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background:
+        radial-gradient(circle at 18% 20%, rgba(229, 29, 36, 0.18), transparent 45%),
+        radial-gradient(circle at 82% 0%, rgba(255, 204, 0, 0.12), transparent 40%);
+      z-index: -1;
     }
 
-    header a {
+    a {
+      color: inherit;
+    }
+
+    .site-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 20px 28px;
+      background: #050505;
+      border-bottom: 1px solid #1c1c1c;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .brand-mark {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Oswald', sans-serif;
+      font-weight: 700;
+      font-size: 1.1rem;
+      letter-spacing: 0.12em;
+      padding: 6px 12px;
+      border-radius: 8px;
+      background: var(--accent);
       color: #fff;
+      text-transform: uppercase;
+    }
+
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .brand-name {
+      font-family: 'Oswald', sans-serif;
+      font-size: 1.4rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    .brand-sub {
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+
+    .header-link {
       text-decoration: none;
-      font-weight: bold;
+      font-size: 0.9rem;
+      color: var(--muted);
+      padding: 8px 14px;
+      border: 1px solid #222;
+      border-radius: 999px;
+    }
+
+    .header-link:hover {
+      color: #fff;
+      border-color: var(--accent);
     }
 
     .content {
-      max-width: 960px;
+      max-width: 1100px;
       margin: 0 auto;
-      padding: 40px 20px 60px;
+      padding: 36px 24px 72px;
     }
 
-    .lede {
-      color: #d6d6d6;
-      margin-bottom: 24px;
-      font-size: 1.05rem;
-    }
-
-    .diagram {
-      margin: 0 0 32px;
-      border: 1px solid #333;
-      border-radius: 10px;
-      overflow: hidden;
-      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.45);
-    }
-
-    .diagram img {
-      width: 100%;
-      display: block;
-    }
-
-    .diagram figcaption {
-      background: #0d0d0d;
-      padding: 12px 16px;
-      font-size: 0.9rem;
-      color: #bbb;
-    }
-
-    .block {
-      margin-bottom: 28px;
-    }
-
-    .pillars {
+    .hero {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 16px;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+      gap: 24px;
+      align-items: stretch;
     }
 
-    .pillar {
-      background-color: #1a1a1a;
-      border: 1px solid #333;
-      border-radius: 8px;
-      padding: 16px;
+    .hero-left,
+    .hero-card {
+      background: var(--panel);
+      border: 1px solid #222;
+      border-radius: 18px;
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.45);
     }
 
-    .pillar h3 {
-      margin-top: 0;
-      margin-bottom: 8px;
+    .hero-left {
+      padding: 28px;
+      animation: fadeUp 0.6s ease both;
     }
 
-    .pillar ul {
-      margin: 8px 0 10px 18px;
-      padding: 0;
-    }
-
-    .note {
-      color: #c8c8c8;
-      font-size: 0.95rem;
-    }
-
-    footer {
-      padding: 20px;
-      text-align: center;
-      background-color: #000;
-      color: #aaa;
-      font-size: 0.9rem;
-    }
-    .motors-section {
-      margin-top: 36px;
-      background: #0d0d0d;
-      border: 1px solid #1f1f1f;
-      border-radius: 16px;
-      overflow: hidden;
-      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.5);
-    }
-
-    .motors-hero {
-      position: relative;
-      padding: 24px 24px 22px;
-      background: linear-gradient(120deg, #0b0b0b 10%, #1b1b1b 55%, #2b0b0b 100%);
-      border-bottom: 1px solid #252525;
-    }
-
-    .motors-hero::after {
-      content: "";
-      position: absolute;
-      top: -10px;
-      right: -70px;
-      width: 170px;
-      height: calc(100% + 20px);
-      background: linear-gradient(140deg, rgba(255, 45, 45, 0) 0%, rgba(255, 45, 45, 0.2) 55%, rgba(255, 45, 45, 0.45) 100%);
-      transform: skewX(-12deg);
-      pointer-events: none;
-    }
-
-    .motors-badge {
-      display: inline-block;
-      padding: 4px 12px;
-      border-radius: 999px;
-      background: #ff2d2d;
-      color: #fff;
-      font-size: 0.72rem;
-      letter-spacing: 0.18em;
+    .eyebrow {
+      margin: 0 0 12px;
+      font-size: 0.75rem;
       text-transform: uppercase;
+      letter-spacing: 0.35em;
+      color: var(--accent);
       font-weight: 700;
     }
 
-    .motors-title {
-      margin: 12px 0 6px;
-      font-size: 2rem;
-      letter-spacing: 0.04em;
+    .hero-title {
+      font-family: 'Oswald', sans-serif;
+      font-size: 2.6rem;
+      margin: 0 0 12px;
+      letter-spacing: 0.02em;
     }
 
-    .motors-tagline {
-      margin: 0 0 14px;
-      color: #d0d0d0;
-      font-size: 1rem;
-      max-width: 560px;
+    .hero-copy {
+      margin: 0 0 18px;
+      color: var(--muted);
+      font-size: 1.05rem;
     }
 
-    .motors-contact {
-      margin: 0;
-      color: #f5f5f5;
-      font-size: 1rem;
-    }
-
-    .motors-contact a {
-      color: #ffcc00;
-      text-decoration: none;
-    }
-
-    .motors-contact a:hover {
-      text-decoration: underline;
-    }
-
-    .motors-meta {
-      margin: 6px 0 0;
-      color: #c8c8c8;
-      font-size: 0.92rem;
-    }
-
-    .motors-grid {
-      padding: 24px;
-      display: grid;
-      gap: 18px;
-      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-      background: #101010;
-    }
-
-    .vehicle-card {
-      background: #171717;
-      border: 1px solid #2a2a2a;
-      border-radius: 12px;
-      overflow: hidden;
+    .cta-row {
       display: flex;
-      flex-direction: column;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .cta {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px 18px;
+      border-radius: 999px;
+      text-decoration: none;
+      font-weight: 600;
+      letter-spacing: 0.02em;
       transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
     }
 
-    .vehicle-card:hover {
+    .cta.primary {
+      background: var(--accent);
+      color: #fff;
+      box-shadow: 0 10px 18px rgba(229, 29, 36, 0.3);
+    }
+
+    .cta.secondary {
+      background: #101010;
+      border: 1px solid #2a2a2a;
+      color: #f5f5f5;
+    }
+
+    .cta:hover {
       transform: translateY(-2px);
-      border-color: #ff2d2d;
-      box-shadow: 0 14px 26px rgba(255, 45, 45, 0.12);
+    }
+
+    .hero-meta {
+      margin: 14px 0 0;
+      font-size: 0.92rem;
+      color: var(--muted);
+    }
+
+    .hero-right {
+      display: grid;
+      gap: 16px;
+    }
+
+    .hero-card {
+      padding: 18px 20px;
+      animation: fadeUp 0.6s ease both;
+    }
+
+    .hero-card h3 {
+      margin: 0 0 10px;
+      font-family: 'Oswald', sans-serif;
+      font-size: 1.2rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    .checklist {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: grid;
+      gap: 8px;
+      color: var(--muted);
+    }
+
+    .checklist li {
+      position: relative;
+      padding-left: 20px;
+    }
+
+    .checklist li::before {
+      content: "+";
+      position: absolute;
+      left: 0;
+      top: 0;
+      color: var(--accent);
+      font-weight: 700;
+    }
+
+    .quick-contact {
+      background: linear-gradient(135deg, #1b1b1b, #120a0a);
+      border: 1px solid #2b2b2b;
+    }
+
+    .contact-line {
+      margin: 8px 0 0;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .contact-line strong {
+      color: #fff;
+      font-weight: 600;
+    }
+
+    .inventory {
+      margin-top: 36px;
+    }
+
+    .section-head {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 18px;
+    }
+
+    .section-head h2 {
+      margin: 0 0 6px;
+      font-family: 'Oswald', sans-serif;
+      font-size: 2rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .section-head p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .inventory-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 18px;
+    }
+
+    .vehicle-card {
+      background: var(--panel);
+      border: 1px solid #242424;
+      border-radius: 16px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      animation: fadeUp 0.7s ease both;
     }
 
     .vehicle-header {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 12px 16px;
-      background: #111;
-      border-bottom: 1px solid #242424;
+      padding: 14px 16px;
+      background: #0f0f0f;
+      border-bottom: 1px solid #202020;
     }
 
     .vehicle-header h3 {
       margin: 0;
-      font-size: 1.05rem;
+      font-family: 'Oswald', sans-serif;
+      font-size: 1.1rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
     }
 
     .vehicle-tag {
-      background: #ff2d2d;
+      background: var(--accent);
       color: #fff;
       font-size: 0.7rem;
       padding: 2px 10px;
       border-radius: 999px;
-      text-transform: uppercase;
       letter-spacing: 0.1em;
+      text-transform: uppercase;
       font-weight: 700;
     }
 
@@ -225,159 +325,130 @@
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 8px;
-      padding: 12px 12px 4px;
+      padding: 12px;
     }
 
     .vehicle-gallery img {
       width: 100%;
-      height: 110px;
+      height: 120px;
       object-fit: cover;
-      border-radius: 8px;
-      border: 1px solid #2a2a2a;
+      border-radius: 10px;
+      border: 1px solid #262626;
     }
 
     .vehicle-footer {
-      padding: 10px 16px 16px;
-      color: #c0c0c0;
+      padding: 0 16px 16px;
+      color: var(--muted);
       font-size: 0.9rem;
     }
 
-    @media (max-width: 820px) {
-      .motors-title {
-        font-size: 1.65rem;
+    footer {
+      padding: 28px;
+      text-align: center;
+      background: #050505;
+      color: #888;
+      font-size: 0.85rem;
+      border-top: 1px solid #1c1c1c;
+    }
+
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(12px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (max-width: 960px) {
+      .hero {
+        grid-template-columns: 1fr;
+      }
+
+      .section-head {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+
+    @media (max-width: 720px) {
+      .site-header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .hero-title {
+        font-size: 2.1rem;
       }
 
       .vehicle-gallery {
         grid-template-columns: repeat(2, 1fr);
       }
-
-      .vehicle-gallery img {
-        height: 120px;
-      }
     }
 
     @media (max-width: 520px) {
-      .motors-hero {
-        padding: 20px;
-      }
-
-      .motors-grid {
-        padding: 16px;
+      .content {
+        padding: 28px 18px 60px;
       }
 
       .vehicle-gallery {
         grid-template-columns: 1fr;
       }
-
-      .vehicle-gallery img {
-        height: 160px;
-      }
     }
   </style>
 </head>
 <body>
-
-  <header>
-    <a href="index.html">COS - Continental Operation Services</a>
+  <header class="site-header">
+    <div class="brand">
+      <span class="brand-mark">COS</span>
+      <div class="brand-text">
+        <div class="brand-name">Symbiotic COS Motors</div>
+        <div class="brand-sub">Pre-owned inventory | Financing available | Se Habla Espanol</div>
+      </div>
+    </div>
+    <a class="header-link" href="index.html">Back to COS Hub</a>
   </header>
 
   <main class="content">
-    <h1>COS Visual Summary</h1>
-    <p class="lede">
-      A futuristic, high-tech corporate diagram showcasing the five main service divisions of COS,
-      floating over a glowing Earth network background. It radiates "We do everything, everywhere,
-      and probably in space too."
-    </p>
-
-    <figure class="diagram">
-      <img src="assets/images/cos-ecosystem-visual.png" alt="COS service divisions diagram over a glowing Earth network">
-      <figcaption>Image: COS service divisions and global operations overview.</figcaption>
-    </figure>
-
-    <section class="block">
-      <h2>Top Section</h2>
-      <p><strong>COS Logo:</strong> Large, metallic, and aggressive. This logo looks like it comes with its own legal department.</p>
-      <p><strong>Title:</strong> "CONTINENTAL OPERATION SERVICES", written twice just to make sure you know who is in charge.</p>
-      <p><strong>Background:</strong> Earth seen from orbit, with connected nodes and light trails - classic "global network domination" energy.</p>
-    </section>
-
-    <section class="block">
-      <h2>Middle Section - Service Pillars</h2>
-      <p>These five sections form the core services COS apparently offers. Each has its own icon, title, and bullet list.</p>
-      <div class="pillars">
-        <article class="pillar">
-          <h3>1. Business Solutions</h3>
-          <p><strong>Icon:</strong> Stylized buildings.</p>
-          <ul>
-            <li>Consulting</li>
-            <li>Logistics</li>
-            <li>Administration</li>
+    <section class="hero">
+      <div class="hero-left">
+        <p class="eyebrow">Symbiotic COS Motors</p>
+        <h1 class="hero-title">Drive with confidence. Move with style.</h1>
+        <p class="hero-copy">Hand-selected vehicles, transparent terms, and a team that keeps the process simple. Get approved fast and drive away ready.</p>
+        <div class="cta-row">
+          <a class="cta primary" href="tel:7023764436">Call Enrique</a>
+          <a class="cta secondary" href="mailto:hehernandezalavezsymbiotic@gmail.com">Email</a>
+        </div>
+        <p class="hero-meta">Se Habla Espanol | Financing Available | Trade-ins Welcome</p>
+      </div>
+      <div class="hero-right">
+        <div class="hero-card">
+          <h3>Why COS Motors</h3>
+          <ul class="checklist">
+            <li>Curated pre-owned inventory</li>
+            <li>Fast approvals and flexible terms</li>
+            <li>Clear, professional buying experience</li>
           </ul>
-          <p class="note">This is where they pretend they know how to make your business more efficient using buzzwords and slide decks.</p>
-        </article>
-
-        <article class="pillar">
-          <h3>2. Security Services</h3>
-          <p><strong>Icon:</strong> Shield plus camera equals safety and surveillance.</p>
-          <ul>
-            <li>Guard Services</li>
-            <li>Surveillance</li>
-            <li>Risk Management</li>
-          </ul>
-          <p class="note">"We are watching everything, but like... professionally."</p>
-        </article>
-
-        <article class="pillar">
-          <h3>3. Facility Management</h3>
-          <p><strong>Icon:</strong> Building plus gears equals we fix what breaks.</p>
-          <ul>
-            <li>Maintenance</li>
-            <li>Cleaning</li>
-            <li>Support Services</li>
-          </ul>
-          <p class="note">Probably involves clipboards, uniforms, and complaints about broken A/C.</p>
-        </article>
-
-        <article class="pillar">
-          <h3>4. Global Operations</h3>
-          <p><strong>Icon:</strong> Globe.</p>
-          <ul>
-            <li>International Projects</li>
-            <li>Field Services</li>
-            <li>Technical Support</li>
-          </ul>
-          <p class="note">For clients who want COS to show up anywhere on Earth and do something helpful.</p>
-        </article>
-
-        <article class="pillar">
-          <h3>5. Aviation / Global Transport</h3>
-          <p><strong>Icon:</strong> Globe and airplane.</p>
-          <ul>
-            <li>Not explicitly listed</li>
-            <li>Implied global transport and logistics</li>
-          </ul>
-          <p class="note">Strong "we can move your people, your stuff, or your secrets" energy.</p>
-        </article>
+        </div>
+        <div class="hero-card quick-contact">
+          <h3>Direct Contact</h3>
+          <p class="contact-line"><strong>Phone:</strong> 702-376-4436</p>
+          <p class="contact-line"><strong>Email:</strong> hehernandezalavezsymbiotic@gmail.com</p>
+          <p class="contact-line"><strong>Appointments:</strong> Available by request</p>
+        </div>
       </div>
     </section>
 
-    <section class="block">
-      <h2>Thematic Elements</h2>
-      <ul>
-        <li>Dark blue and black palette equals serious, global, and expensive.</li>
-        <li>Network lines across Earth means "We are connected to everything, everywhere."</li>
-        <li>Icons are clean, cold, and confident. Each one practically says, "This is not our first billion-dollar contract."</li>
-      </ul>
-    </section>
-    <section class="motors-section" id="cos-motors">
-      <div class="motors-hero">
-        <span class="motors-badge">COS Motors</span>
-        <h2 class="motors-title">Drive Bold. Drive Ready.</h2>
-        <p class="motors-tagline">Curated pre-owned inventory with flexible financing and fast approvals. Built for drivers who want reliability and presence.</p>
-        <p class="motors-contact">Call Enrique: <strong>702-376-4436</strong> | Email: <a href="mailto:hehernandezalavezsymbiotic@gmail.com">hehernandezalavezsymbiotic@gmail.com</a></p>
-        <p class="motors-meta">Se Habla Espanol - Financing Available</p>
+    <section class="inventory">
+      <div class="section-head">
+        <div>
+          <h2>Featured Inventory</h2>
+          <p>Inventory rotates weekly. Call for current availability.</p>
+        </div>
       </div>
-      <div class="motors-grid">
+      <div class="inventory-grid">
         <article class="vehicle-card">
           <div class="vehicle-header">
             <h3>Explorer</h3>
@@ -444,22 +515,10 @@
         </article>
       </div>
     </section>
-
-
-    <section class="block">
-      <h2>What This Image Really Says</h2>
-      <p>
-        "We are a full-spectrum operation service platform that can handle your infrastructure,
-        security, logistics, and maybe your midlife crisis - all while looking like the interface
-        of a futuristic defense satellite."
-      </p>
-    </section>
   </main>
 
   <footer>
-    &copy; COS 2026 - All Rights Reserved
+    COS Motors 2026 - All Rights Reserved
   </footer>
-
 </body>
 </html>
-
