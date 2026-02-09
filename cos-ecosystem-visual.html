@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -98,6 +98,64 @@
       color: #aaa;
       font-size: 0.9rem;
     }
+      .cos-motors {
+      margin-top: 32px;
+      background: #151515;
+      border: 1px solid #2b2b2b;
+      border-radius: 12px;
+      padding: 20px;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.45);
+    }
+
+    .cos-motors h2 {
+      margin-top: 0;
+      margin-bottom: 8px;
+      color: #ffcc00;
+    }
+
+    .cos-motors .contact {
+      margin: 0 0 8px;
+      color: #e6e6e6;
+      font-size: 1rem;
+    }
+
+    .cos-motors .contact a {
+      color: #ffcc00;
+      text-decoration: none;
+    }
+
+    .cos-motors .contact a:hover {
+      text-decoration: underline;
+    }
+
+    .cos-motors .motors-meta {
+      margin: 0 0 16px;
+      color: #c8c8c8;
+      font-size: 0.95rem;
+    }
+
+    .cos-motors .cars {
+      display: grid;
+      gap: 16px;
+    }
+
+    .cos-motors .car {
+      background: #1b1b1b;
+      border: 1px solid #333;
+      border-radius: 10px;
+      padding: 16px;
+    }
+
+    .cos-motors .car h3 {
+      margin: 0 0 8px;
+      color: #f5f5f5;
+    }
+
+    @media (max-width: 768px) {
+      .cos-motors {
+        padding: 16px;
+      }
+    }
   </style>
 </head>
 <body>
@@ -194,6 +252,18 @@
         <li>Icons are clean, cold, and confident. Each one practically says, "This is not our first billion-dollar contract."</li>
       </ul>
     </section>
+    <section class="block cos-motors">
+      <h2>COS Motors</h2>
+      <p class="contact">Call Enrique: <strong>702-376-4436</strong> | Email: <a href="mailto:hehernandezalavezsymbiotic@gmail.com">hehernandezalavezsymbiotic@gmail.com</a></p>
+      <p class="motors-meta">Se Habla Espanol - Financing Available</p>
+      <div class="cars">
+        <article class="car">
+          <h3>Inventory</h3>
+          <p class="note">Vehicle sections will go here. Add cards with photos, specs, and pricing.</p>
+        </article>
+      </div>
+    </section>
+
 
     <section class="block">
       <h2>What This Image Really Says</h2>
@@ -211,3 +281,4 @@
 
 </body>
 </html>
+
