@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Symbiotic COS Motors</title>
+  <title>Vegas Auto Sales LLC | Las Vegas, NV</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -10,8 +10,8 @@
   <style>
     :root {
       --bg: #0a0a0a;
-      --panel: #141414;
-      --panel-2: #1b1b1b;
+      --panel: rgba(20, 20, 20, 0.92);
+      --panel-2: rgba(27, 27, 27, 0.92);
       --text: #f5f5f5;
       --muted: #b5b5b5;
       --accent: #ffd100;
@@ -25,9 +25,10 @@
     body {
       margin: 0;
       font-family: "Sora", sans-serif;
-      background: radial-gradient(circle at top right, #222 0%, #0a0a0a 60%);
+      background: var(--bg) url("assets/images/vegasautosalesllc.png") center/cover fixed no-repeat;
       color: var(--text);
       line-height: 1.6;
+      position: relative;
     }
 
     body::before {
@@ -35,9 +36,15 @@
       position: fixed;
       inset: 0;
       background:
-        linear-gradient(135deg, rgba(255, 209, 0, 0.08), transparent 45%),
-        radial-gradient(circle at 15% 20%, rgba(255, 209, 0, 0.15), transparent 40%);
-      z-index: -1;
+        linear-gradient(135deg, rgba(10, 10, 10, 0.75), rgba(10, 10, 10, 0.6)),
+        radial-gradient(circle at 15% 20%, rgba(255, 209, 0, 0.12), transparent 45%);
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    body > * {
+      position: relative;
+      z-index: 1;
     }
 
     .container {
@@ -47,8 +54,9 @@
     }
 
     header.site-header {
-      background: #050505;
+      background: rgba(5, 5, 5, 0.92);
       border-bottom: 1px solid #1c1c1c;
+      backdrop-filter: blur(6px);
     }
 
     .header-inner {
@@ -109,6 +117,7 @@
       border-radius: 16px;
       padding: 24px;
       box-shadow: 0 18px 40px rgba(0, 0, 0, 0.5);
+      backdrop-filter: blur(6px);
     }
 
     .hero-eyebrow {
@@ -205,6 +214,7 @@
       overflow: hidden;
       display: flex;
       flex-direction: column;
+      backdrop-filter: blur(4px);
     }
 
     .vehicle-header {
@@ -213,7 +223,7 @@
       align-items: center;
       gap: 10px;
       padding: 16px 18px;
-      background: #0f0f0f;
+      background: rgba(15, 15, 15, 0.9);
       border-bottom: 1px solid #222;
     }
 
@@ -244,7 +254,12 @@
       background: var(--panel-2);
     }
 
-    .vehicle-gallery img {
+    .image-link {
+      display: block;
+    }
+
+    .image-link img {
+      display: block;
       width: 100%;
       height: 150px;
       object-fit: cover;
@@ -277,7 +292,7 @@
     }
 
     .vehicle-contact {
-      background: #101010;
+      background: rgba(16, 16, 16, 0.92);
       border: 1px solid #222;
       border-radius: 10px;
       padding: 12px 14px;
@@ -290,7 +305,7 @@
     }
 
     footer.site-footer {
-      background: #050505;
+      background: rgba(5, 5, 5, 0.92);
       border-top: 1px solid #1c1c1c;
       text-align: center;
       padding: 20px 0;
@@ -323,10 +338,10 @@
   <header class="site-header">
     <div class="container header-inner">
       <div class="brand">
-        <span class="brand-badge">COS</span>
+        <span class="brand-badge">VEGAS</span>
         <div class="brand-text">
-          <h1>Symbiotic COS Motors</h1>
-          <p>Se Habla Español – Financing Available</p>
+          <h1>Vegas Auto Sales LLC</h1>
+          <p>Las Vegas, NV • Se Habla Español – Financing Available</p>
         </div>
       </div>
       <div class="contact-block">
@@ -340,9 +355,9 @@
     <section class="hero">
       <div class="container">
         <div class="hero-card">
-          <p class="hero-eyebrow">Symbiotic COS Motors</p>
-          <h2 class="hero-title">Drive strong. Drive confident.</h2>
-          <p class="hero-copy">Professional, no-pressure inventory with flexible financing. Call or email to lock in your next ride.</p>
+          <p class="hero-eyebrow">Vegas Auto Sales LLC</p>
+          <h2 class="hero-title">Vegas Auto Sales | Las Vegas, NV</h2>
+          <p class="hero-copy">Professional, no-pressure inventory with flexible financing. Serving Las Vegas with vehicles ready to drive today.</p>
           <div class="hero-actions">
             <a class="btn btn-primary" href="tel:7023764436">Call Now</a>
             <a class="btn btn-secondary" href="mailto:hehernandezalavezsymbiotic@gmail.com">Email Us</a>
@@ -364,9 +379,9 @@
               <span class="price-tag">Available</span>
             </header>
             <div class="vehicle-gallery">
-              <img src="assets/images/cos%20motors/explorer1.jpeg" alt="2010 Ford Escape XLT exterior view">
-              <img src="assets/images/cos%20motors/explorer2.jpeg" alt="2010 Ford Escape XLT side profile">
-              <img src="assets/images/cos%20motors/explorer3.jpeg" alt="2010 Ford Escape XLT interior detail">
+              <a class="image-link" href="assets/images/cos%20motors/explorer1.jpeg" target="_blank" rel="noopener"><img src="assets/images/cos%20motors/explorer1.jpeg" alt="2010 Ford Escape XLT exterior view"></a>
+              <a class="image-link" href="assets/images/cos%20motors/explorer2.jpeg" target="_blank" rel="noopener"><img src="assets/images/cos%20motors/explorer2.jpeg" alt="2010 Ford Escape XLT side profile"></a>
+              <a class="image-link" href="assets/images/cos%20motors/explorer3.jpeg" target="_blank" rel="noopener"><img src="assets/images/cos%20motors/explorer3.jpeg" alt="2010 Ford Escape XLT interior detail"></a>
             </div>
             <div class="vehicle-body">
               <ul class="vehicle-features">
@@ -389,13 +404,13 @@
               <span class="price-tag">Available</span>
             </header>
             <div class="vehicle-gallery">
-              <img src="assets/images/cos%20motors/toyota1.jpeg" alt="2018 Toyota RAV4 exterior view">
-              <img src="assets/images/cos%20motors/toyota2.jpeg" alt="2018 Toyota RAV4 side profile">
-              <img src="assets/images/cos%20motors/toyota3.jpeg" alt="2018 Toyota RAV4 interior detail">
+              <a class="image-link" href="assets/images/cos%20motors/toyota1.jpeg" target="_blank" rel="noopener"><img src="assets/images/cos%20motors/toyota1.jpeg" alt="2018 Toyota RAV4 exterior view"></a>
+              <a class="image-link" href="assets/images/cos%20motors/toyota2.jpeg" target="_blank" rel="noopener"><img src="assets/images/cos%20motors/toyota2.jpeg" alt="2018 Toyota RAV4 side profile"></a>
+              <a class="image-link" href="assets/images/cos%20motors/toyota3.jpeg" target="_blank" rel="noopener"><img src="assets/images/cos%20motors/toyota3.jpeg" alt="2018 Toyota RAV4 interior detail"></a>
             </div>
             <div class="vehicle-body">
               <ul class="vehicle-features">
-                <li>4.0L, 6-cyl, short bed, 5 passengers</li>
+                <li>4.0L, 6-cyl, 5 passengers</li>
                 <li>Bluetooth, Backup Camera, Keyless Entry</li>
                 <li>USB Input, Power Windows, Tinted Windows</li>
                 <li>Running Boards, Original Wheels, Cruise Control</li>
@@ -414,9 +429,9 @@
               <span class="price-tag">Available</span>
             </header>
             <div class="vehicle-gallery">
-              <img src="assets/images/cos%20motors/nissan1.jpeg" alt="2016 Nissan Rogue S exterior view">
-              <img src="assets/images/cos%20motors/nissan2.jpeg" alt="2016 Nissan Rogue S side profile">
-              <img src="assets/images/cos%20motors/nissan3.jpeg" alt="2016 Nissan Rogue S interior detail">
+              <a class="image-link" href="assets/images/cos%20motors/nissan1.jpeg" target="_blank" rel="noopener"><img src="assets/images/cos%20motors/nissan1.jpeg" alt="2016 Nissan Rogue S exterior view"></a>
+              <a class="image-link" href="assets/images/cos%20motors/nissan2.jpeg" target="_blank" rel="noopener"><img src="assets/images/cos%20motors/nissan2.jpeg" alt="2016 Nissan Rogue S side profile"></a>
+              <a class="image-link" href="assets/images/cos%20motors/nissan3.jpeg" target="_blank" rel="noopener"><img src="assets/images/cos%20motors/nissan3.jpeg" alt="2016 Nissan Rogue S interior detail"></a>
             </div>
             <div class="vehicle-body">
               <ul class="vehicle-features">
@@ -439,9 +454,9 @@
               <span class="price-tag">Available</span>
             </header>
             <div class="vehicle-gallery">
-              <img src="assets/images/cos%20motors/lexus1.jpeg" alt="2014 Lexus IS350 F Sport exterior view">
-              <img src="assets/images/cos%20motors/lexus2.jpeg" alt="2014 Lexus IS350 F Sport side profile">
-              <img src="assets/images/cos%20motors/lexus3.jpeg" alt="2014 Lexus IS350 F Sport interior detail">
+              <a class="image-link" href="assets/images/cos%20motors/lexus1.jpeg" target="_blank" rel="noopener"><img src="assets/images/cos%20motors/lexus1.jpeg" alt="2014 Lexus IS350 F Sport exterior view"></a>
+              <a class="image-link" href="assets/images/cos%20motors/lexus2.jpeg" target="_blank" rel="noopener"><img src="assets/images/cos%20motors/lexus2.jpeg" alt="2014 Lexus IS350 F Sport side profile"></a>
+              <a class="image-link" href="assets/images/cos%20motors/lexus3.jpeg" target="_blank" rel="noopener"><img src="assets/images/cos%20motors/lexus3.jpeg" alt="2014 Lexus IS350 F Sport interior detail"></a>
             </div>
             <div class="vehicle-body">
               <ul class="vehicle-features">
@@ -464,9 +479,9 @@
               <span class="price-tag">$8,900</span>
             </header>
             <div class="vehicle-gallery">
-              <img src="assets/images/cos%20motors/ford1.jpeg" alt="2011 Ford Mustang V6 exterior view">
-              <img src="assets/images/cos%20motors/ford2.jpeg" alt="2011 Ford Mustang V6 rear view">
-              <img src="assets/images/cos%20motors/ford3.jpeg" alt="2011 Ford Mustang V6 interior detail">
+              <a class="image-link" href="assets/images/cos%20motors/ford1.jpeg" target="_blank" rel="noopener"><img src="assets/images/cos%20motors/ford1.jpeg" alt="2011 Ford Mustang V6 exterior view"></a>
+              <a class="image-link" href="assets/images/cos%20motors/ford2.jpeg" target="_blank" rel="noopener"><img src="assets/images/cos%20motors/ford2.jpeg" alt="2011 Ford Mustang V6 rear view"></a>
+              <a class="image-link" href="assets/images/cos%20motors/ford3.jpeg" target="_blank" rel="noopener"><img src="assets/images/cos%20motors/ford3.jpeg" alt="2011 Ford Mustang V6 interior detail"></a>
             </div>
             <div class="vehicle-body">
               <ul class="vehicle-features">
@@ -487,7 +502,7 @@
   </main>
 
   <footer class="site-footer">
-    Symbiotic COS Motors | Se Habla Español – Financing Available
+    Vegas Auto Sales LLC | Las Vegas, NV | Se Habla Español – Financing Available
   </footer>
 </body>
 </html>
