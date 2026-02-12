@@ -1,508 +1,80 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Vegaz Auto Sales LLC | Las Vegas, NV</title>
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; script-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; frame-ancestors 'none'">
+  <title>COS Motors | Las Vegas Inventory</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="COS Motors Las Vegas inventory. Financing available. Call for pricing and availability.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Sora:wght@400;600&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --bg: #0a0a0a;
-      --panel: rgba(20, 20, 20, 0.92);
-      --panel-2: rgba(27, 27, 27, 0.92);
-      --text: #f5f5f5;
-      --muted: #b5b5b5;
-      --accent: #ffd100;
-      --accent-dark: #caa400;
-    }
-
-    * {
-      box-sizing: border-box;
-    }
-
-    body {
-      margin: 0;
-      font-family: "Sora", sans-serif;
-      background: var(--bg) url("assets/images/vegasautosalesllc.png") center/cover fixed no-repeat;
-      color: var(--text);
-      line-height: 1.6;
-      position: relative;
-    }
-
-    body::before {
-      content: "";
-      position: fixed;
-      inset: 0;
-      background:
-        linear-gradient(135deg, rgba(10, 10, 10, 0.75), rgba(10, 10, 10, 0.6)),
-        radial-gradient(circle at 15% 20%, rgba(255, 209, 0, 0.12), transparent 45%);
-      z-index: 0;
-      pointer-events: none;
-    }
-
-    body > * {
-      position: relative;
-      z-index: 1;
-    }
-
-    .container {
-      width: min(1200px, 92vw);
-      margin: 0 auto;
-      padding: 24px 0;
-    }
-
-    header.site-header {
-      background: rgba(5, 5, 5, 0.92);
-      border-bottom: 1px solid #1c1c1c;
-      backdrop-filter: blur(6px);
-    }
-
-    .header-inner {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: space-between;
-      gap: 16px;
-    }
-
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-
-    .brand-badge {
-      background: var(--accent);
-      color: #0a0a0a;
-      font-family: "Bebas Neue", sans-serif;
-      letter-spacing: 0.2em;
-      padding: 6px 14px;
-      border-radius: 6px;
-      font-size: 1.1rem;
-    }
-
-    .brand-text h1 {
-      margin: 0;
-      font-family: "Bebas Neue", sans-serif;
-      font-size: 2rem;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-    }
-
-    .brand-text p {
-      margin: 4px 0 0;
-      color: var(--muted);
-      font-size: 0.95rem;
-    }
-
-    .contact-block {
-      text-align: right;
-      font-size: 0.95rem;
-    }
-
-    .contact-block strong {
-      color: var(--accent);
-      font-weight: 600;
-    }
-
-    .hero {
-      padding: 32px 0 10px;
-    }
-
-    .hero-card {
-      background: var(--panel);
-      border: 1px solid #242424;
-      border-radius: 16px;
-      padding: 24px;
-      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.5);
-      backdrop-filter: blur(6px);
-    }
-
-    .hero-eyebrow {
-      text-transform: uppercase;
-      letter-spacing: 0.35em;
-      color: var(--accent);
-      font-size: 0.7rem;
-      font-weight: 600;
-      margin: 0 0 10px;
-    }
-
-    .hero-title {
-      margin: 0 0 12px;
-      font-family: "Bebas Neue", sans-serif;
-      font-size: 2.6rem;
-      letter-spacing: 0.05em;
-    }
-
-    .hero-copy {
-      margin: 0 0 16px;
-      color: var(--muted);
-      font-size: 1.05rem;
-    }
-
-    .hero-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-    }
-
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 10px 18px;
-      border-radius: 999px;
-      text-decoration: none;
-      font-weight: 600;
-      border: 1px solid transparent;
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-    }
-
-    .btn-primary {
-      background: var(--accent);
-      color: #0a0a0a;
-      box-shadow: 0 10px 20px rgba(255, 209, 0, 0.25);
-    }
-
-    .btn-secondary {
-      background: transparent;
-      color: var(--text);
-      border-color: #2a2a2a;
-    }
-
-    .btn:hover {
-      transform: translateY(-2px);
-    }
-
-    .inventory {
-      padding: 24px 0 48px;
-    }
-
-    .section-head {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-      margin-bottom: 18px;
-    }
-
-    .section-head h2 {
-      margin: 0;
-      font-family: "Bebas Neue", sans-serif;
-      font-size: 2rem;
-      letter-spacing: 0.05em;
-    }
-
-    .section-head p {
-      margin: 0;
-      color: var(--muted);
-    }
-
-    .inventory-grid {
-      display: grid;
-      gap: 20px;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    }
-
-    .vehicle-card {
-      background: var(--panel);
-      border: 1px solid #242424;
-      border-radius: 16px;
-      overflow: hidden;
-      display: flex;
-      flex-direction: column;
-      backdrop-filter: blur(4px);
-    }
-
-    .vehicle-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 10px;
-      padding: 16px 18px;
-      background: rgba(15, 15, 15, 0.9);
-      border-bottom: 1px solid #222;
-    }
-
-    .vehicle-header h3 {
-      margin: 0;
-      font-family: "Bebas Neue", sans-serif;
-      font-size: 1.2rem;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-    }
-
-    .price-tag {
-      background: var(--accent);
-      color: #0a0a0a;
-      font-weight: 700;
-      padding: 4px 10px;
-      border-radius: 999px;
-      font-size: 0.8rem;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-    }
-
-    .vehicle-gallery {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 8px;
-      padding: 16px;
-      background: var(--panel-2);
-    }
-
-    .image-link {
-      display: block;
-    }
-
-    .image-link img {
-      display: block;
-      width: 100%;
-      height: 150px;
-      object-fit: cover;
-      border-radius: 10px;
-      border: 1px solid #262626;
-    }
-
-    .vehicle-body {
-      padding: 16px 18px 20px;
-    }
-
-    .vehicle-features {
-      list-style: none;
-      padding: 0;
-      margin: 0 0 16px;
-      color: var(--muted);
-    }
-
-    .vehicle-features li {
-      margin-bottom: 6px;
-      padding-left: 16px;
-      position: relative;
-    }
-
-    .vehicle-features li::before {
-      content: "ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢";
-      color: var(--accent);
-      position: absolute;
-      left: 0;
-    }
-
-    .vehicle-contact {
-      background: rgba(16, 16, 16, 0.92);
-      border: 1px solid #222;
-      border-radius: 10px;
-      padding: 12px 14px;
-      font-size: 0.92rem;
-      color: var(--muted);
-    }
-
-    .vehicle-contact strong {
-      color: var(--text);
-    }
-
-    footer.site-footer {
-      background: rgba(5, 5, 5, 0.92);
-      border-top: 1px solid #1c1c1c;
-      text-align: center;
-      padding: 20px 0;
-      color: #8a8a8a;
-      font-size: 0.85rem;
-    }
-
-    @media (max-width: 820px) {
-      .contact-block {
-        text-align: left;
-      }
-
-      .vehicle-gallery {
-        grid-template-columns: repeat(2, 1fr);
-      }
-    }
-
-    @media (max-width: 520px) {
-      .vehicle-gallery {
-        grid-template-columns: 1fr;
-      }
-
-      .hero-title {
-        font-size: 2.1rem;
-      }
-    }
-  </style>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@300;400;500;600&display=swap">
+  <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 <body>
-  <header class="site-header">
-    <div class="container header-inner">
+  <div class="page">
+    <header>
       <div class="brand">
-        <span class="brand-badge">VEGAS</span>
-        <div class="brand-text">
-          <h1>Vegaz Auto Sales LLC</h1>
-          <p>Las Vegas, NV | Se Habla Espanol - Financing Available</p>
+        <div class="brand-mark">COS</div>
+        <div>
+          <div class="brand-name">Motors</div>
+          <div class="brand-sub">Las Vegas</div>
         </div>
       </div>
-      <div class="contact-block">
-        <div><strong>Call:</strong> 702-376-4436</div>
-        <div><strong>Email:</strong> hehernandezalavezsymbiotic@gmail.com</div>
+      <div class="contact">
+        <a class="primary" href="tel:702-376-4436">Call 702-376-4436</a>
+        <a href="mailto:hehernandezalavezsymbiotic@gmail.com">Email Enrique</a>
       </div>
-    </div>
-  </header>
+    </header>
 
-  <main>
-    <section class="hero">
-      <div class="container">
-        <div class="hero-card">
-          <p class="hero-eyebrow">Vegaz Auto Sales LLC</p>
-          <h2 class="hero-title">Vegaz Auto Sales | Las Vegas, NV</h2>
-          <p class="hero-copy">Professional, no-pressure inventory with flexible financing. Serving Las Vegas with vehicles ready to drive today.</p>
-          <div class="hero-actions">
-            <a class="btn btn-primary" href="tel:7023764436">Call Now</a>
-            <a class="btn btn-secondary" href="mailto:hehernandezalavezsymbiotic@gmail.com">Email Us</a>
+    <main>
+      <section class="hero">
+        <div>
+          <h1>Fresh inventory. Fast approvals.</h1>
+          <p>Ask about pricing, mileage, and availability. Financing available. Cash offers welcome.</p>
+          <div class="badges">
+            <span class="badge">Financing Available</span>
+            <span class="badge">Se Habla Espanol</span>
+            <span class="badge">Las Vegas</span>
           </div>
         </div>
-      </div>
-    </section>
-
-    <section class="inventory" aria-label="Vehicle Inventory">
-      <div class="container">
-        <div class="section-head">
-          <h2>Inventory</h2>
-          <p>Updated regularly. Ask about financing and trade-ins.</p>
+        <div class="hero-card">
+          <h2>Contact</h2>
+          <p><strong>Enrique</strong></p>
+          <p>Phone: <strong>702-376-4436</strong></p>
+          <p>Email: <strong>hehernandezalavezsymbiotic@gmail.com</strong></p>
         </div>
-        <div class="inventory-grid">
-          <article class="vehicle-card" id="vehicle-escape">
-            <header class="vehicle-header">
-              <h3>2010 Ford Escape XLT</h3>
-              <span class="price-tag">Available</span>
-            </header>
-            <div class="vehicle-gallery">
-              <a class="image-link" href="assets/images/cos%20motors/explorer1.jpeg" target="_blank" rel="noopener"><img src="assets/images/cos%20motors/explorer1.jpeg" alt="2010 Ford Escape XLT exterior view"></a>
-              <a class="image-link" href="assets/images/cos%20motors/explorer2.jpeg" target="_blank" rel="noopener"><img src="assets/images/cos%20motors/explorer2.jpeg" alt="2010 Ford Escape XLT side profile"></a>
-              <a class="image-link" href="assets/images/cos%20motors/explorer3.jpeg" target="_blank" rel="noopener"><img src="assets/images/cos%20motors/explorer3.jpeg" alt="2010 Ford Escape XLT interior detail"></a>
-            </div>
-            <div class="vehicle-body">
-              <ul class="vehicle-features">
-                <li>2.4L, FWD, 4-cyl, 5 passengers</li>
-                <li>Bluetooth, Backup Camera, Keyless Entry, Sunroof</li>
-                <li>USB Input, Power Windows, Tinted Windows</li>
-                <li>Running Boards, Original Wheels, Cruise Control</li>
-                <li>150,000 miles, Clean title</li>
-              </ul>
-              <div class="vehicle-contact">
-                <div><strong>Financing:</strong> Available</div>
-                <div><strong>Contact:</strong> 702-376-4436 | hehernandezalavezsymbiotic@gmail.com</div>
-              </div>
-            </div>
-          </article>
+      </section>
 
-          <article class="vehicle-card" id="vehicle-rav4">
-            <header class="vehicle-header">
-              <h3>2018 Toyota RAV4</h3>
-              <span class="price-tag">Available</span>
-            </header>
-            <div class="vehicle-gallery">
-              <a class="image-link" href="assets/images/cos%20motors/toyota1.jpeg" target="_blank" rel="noopener"><img src="assets/images/cos%20motors/toyota1.jpeg" alt="2018 Toyota RAV4 exterior view"></a>
-              <a class="image-link" href="assets/images/cos%20motors/toyota2.jpeg" target="_blank" rel="noopener"><img src="assets/images/cos%20motors/toyota2.jpeg" alt="2018 Toyota RAV4 side profile"></a>
-              <a class="image-link" href="assets/images/cos%20motors/toyota3.jpeg" target="_blank" rel="noopener"><img src="assets/images/cos%20motors/toyota3.jpeg" alt="2018 Toyota RAV4 interior detail"></a>
-            </div>
-            <div class="vehicle-body">
-              <ul class="vehicle-features">
-                <li>4.0L, 6-cyl, 5 passengers</li>
-                <li>Bluetooth, Backup Camera, Keyless Entry</li>
-                <li>USB Input, Power Windows, Tinted Windows</li>
-                <li>Running Boards, Original Wheels, Cruise Control</li>
-                <li>73,000 miles, Clean title</li>
-              </ul>
-              <div class="vehicle-contact">
-                <div><strong>Financing:</strong> Available</div>
-                <div><strong>Contact:</strong> 702-376-4436 | hehernandezalavezsymbiotic@gmail.com</div>
-              </div>
-            </div>
-          </article>
+      <section id="inventory" class="inventory">
+        <h2>Inventory</h2>
+        <p>All details below. Message to schedule a test drive.</p>
+        <div class="grid" id="inventory-grid"></div>
+        <noscript>
+          <p class="noscript">JavaScript is required to view the inventory.</p>
+        </noscript>
+      </section>
+    </main>
 
-          <article class="vehicle-card" id="vehicle-rogue">
-            <header class="vehicle-header">
-              <h3>2016 Nissan Rogue S</h3>
-              <span class="price-tag">Available</span>
-            </header>
-            <div class="vehicle-gallery">
-              <a class="image-link" href="assets/images/cos%20motors/nissan1.jpeg" target="_blank" rel="noopener"><img src="assets/images/cos%20motors/nissan1.jpeg" alt="2016 Nissan Rogue S exterior view"></a>
-              <a class="image-link" href="assets/images/cos%20motors/nissan2.jpeg" target="_blank" rel="noopener"><img src="assets/images/cos%20motors/nissan2.jpeg" alt="2016 Nissan Rogue S side profile"></a>
-              <a class="image-link" href="assets/images/cos%20motors/nissan3.jpeg" target="_blank" rel="noopener"><img src="assets/images/cos%20motors/nissan3.jpeg" alt="2016 Nissan Rogue S interior detail"></a>
-            </div>
-            <div class="vehicle-body">
-              <ul class="vehicle-features">
-                <li>2.4L, FWD, 4-cyl, 5 passengers</li>
-                <li>Bluetooth, Backup Camera, Keyless Entry</li>
-                <li>USB Input, Power Windows, Tinted Windows</li>
-                <li>Running Boards, Original Wheels, Cruise Control</li>
-                <li>114,000 miles, Clean title</li>
-              </ul>
-              <div class="vehicle-contact">
-                <div><strong>Financing:</strong> Available</div>
-                <div><strong>Contact:</strong> 702-376-4436 | hehernandezalavezsymbiotic@gmail.com</div>
-              </div>
-            </div>
-          </article>
+    <footer>
+      &copy; COS Motors 2026 - All Rights Reserved
+    </footer>
+  </div>
 
-          <article class="vehicle-card" id="vehicle-lexus">
-            <header class="vehicle-header">
-              <h3>2014 Lexus IS350 F Sport</h3>
-              <span class="price-tag">Available</span>
-            </header>
-            <div class="vehicle-gallery">
-              <a class="image-link" href="assets/images/cos%20motors/lexus1.jpeg" target="_blank" rel="noopener"><img src="assets/images/cos%20motors/lexus1.jpeg" alt="2014 Lexus IS350 F Sport exterior view"></a>
-              <a class="image-link" href="assets/images/cos%20motors/lexus2.jpeg" target="_blank" rel="noopener"><img src="assets/images/cos%20motors/lexus2.jpeg" alt="2014 Lexus IS350 F Sport side profile"></a>
-              <a class="image-link" href="assets/images/cos%20motors/lexus3.jpeg" target="_blank" rel="noopener"><img src="assets/images/cos%20motors/lexus3.jpeg" alt="2014 Lexus IS350 F Sport interior detail"></a>
-            </div>
-            <div class="vehicle-body">
-              <ul class="vehicle-features">
-                <li>3.5L, 6-cyl, RWD, 5 passengers</li>
-                <li>Bluetooth, Backup Camera, Keyless Entry</li>
-                <li>USB Input, Power Windows, Tinted Windows</li>
-                <li>Running Boards, Original Wheels, Cruise Control</li>
-                <li>121,000 miles, Clean title</li>
-              </ul>
-              <div class="vehicle-contact">
-                <div><strong>Financing:</strong> Available</div>
-                <div><strong>Contact:</strong> 702-376-4436 | hehernandezalavezsymbiotic@gmail.com</div>
-              </div>
-            </div>
-          </article>
-
-          <article class="vehicle-card" id="vehicle-mustang">
-            <header class="vehicle-header">
-              <h3>2011 Ford Mustang V6</h3>
-              <span class="price-tag">$8,900</span>
-            </header>
-            <div class="vehicle-gallery">
-              <a class="image-link" href="assets/images/cos%20motors/ford1.jpeg" target="_blank" rel="noopener"><img src="assets/images/cos%20motors/ford1.jpeg" alt="2011 Ford Mustang V6 exterior view"></a>
-              <a class="image-link" href="assets/images/cos%20motors/ford2.jpeg" target="_blank" rel="noopener"><img src="assets/images/cos%20motors/ford2.jpeg" alt="2011 Ford Mustang V6 rear view"></a>
-              <a class="image-link" href="assets/images/cos%20motors/ford3.jpeg" target="_blank" rel="noopener"><img src="assets/images/cos%20motors/ford3.jpeg" alt="2011 Ford Mustang V6 interior detail"></a>
-            </div>
-            <div class="vehicle-body">
-              <ul class="vehicle-features">
-                <li>159,000 miles, Automatic</li>
-                <li>Grey exterior, red interior</li>
-                <li>Cold A/C, clean dashboard, great trunk space</li>
-                <li>Mechanically solid, no warning lights</li>
-              </ul>
-              <div class="vehicle-contact">
-                <div><strong>Financing:</strong> Available</div>
-                <div><strong>Contact:</strong> 702-376-4436 | hehernandezalavezsymbiotic@gmail.com</div>
-              </div>
-            </div>
-          </article>
-        </div>
+  <template id="vehicle-card-template">
+    <article class="car-card">
+      <div class="car-image">
+        <img src="" alt="" loading="lazy" decoding="async">
       </div>
-    </section>
-  </main>
+      <div class="car-body">
+        <h3 data-title></h3>
+        <p class="meta" data-meta></p>
+        <div class="badge-row" data-badges></div>
+        <div class="card-sections" data-sections></div>
+      </div>
+    </article>
+  </template>
 
-  <footer class="site-footer">
-    Vegaz Auto Sales LLC | Las Vegas, NV | Se Habla Espanol - Financing Available
-  </footer>
+  <script src="assets/js/inventory.js" defer></script>
 </body>
 </html>
