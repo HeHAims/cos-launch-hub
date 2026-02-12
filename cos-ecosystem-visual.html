@@ -3,74 +3,139 @@
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; script-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; frame-ancestors 'none'">
-  <title>COS Motors | Las Vegas Inventory</title>
+  <title>Vegaz Auto Sales LLC | COS Motors</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="COS Motors Las Vegas inventory. Financing available. Call for pricing and availability.">
+  <meta name="description" content="Vegaz Auto Sales LLC Las Vegas inventory. COS Motors + ecosystem. Financing available. Call for pricing and availability.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@300;400;500;600&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Sora:wght@400;600&display=swap">
   <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 <body>
-  <div class="page">
-    <header>
+  <header class="site-header">
+    <div class="container header-inner">
       <div class="brand">
-        <div class="brand-mark">COS</div>
-        <div>
-          <div class="brand-name">Motors</div>
-          <div class="brand-sub">Las Vegas</div>
+        <img class="brand-logo" src="assets/images/cos-brand-logo.png" alt="COS logo">
+        <div class="brand-text">
+          <h1>Vegaz Auto Sales LLC</h1>
+          <p>COS Motors + Ecosystem | Las Vegas, NV | Se Habla Espanol - Financing Available</p>
         </div>
       </div>
-      <div class="contact">
-        <a class="primary" href="tel:702-376-4436">Call 702-376-4436</a>
-        <a href="mailto:hehernandezalavezsymbiotic@gmail.com">Email Enrique</a>
+      <div class="contact-block">
+        <div><strong>Call:</strong> 702-376-4436</div>
+        <div><strong>Email:</strong> hehernandezalavezsymbiotic@gmail.com</div>
       </div>
-    </header>
+    </div>
+  </header>
 
-    <main>
-      <section class="hero">
-        <div>
-          <h1>Fresh inventory. Fast approvals.</h1>
-          <p>Ask about pricing, mileage, and availability. Financing available. Cash offers welcome.</p>
-          <div class="badges">
-            <span class="badge">Financing Available</span>
-            <span class="badge">Se Habla Espanol</span>
-            <span class="badge">Las Vegas</span>
+  <main>
+    <section class="hero">
+      <div class="container">
+        <div class="hero-card">
+          <p class="hero-eyebrow">Vegaz Auto Sales LLC + COS Ecosystem</p>
+          <h2 class="hero-title">Professional inventory with the power of the COS ecosystem.</h2>
+          <p class="hero-copy">Serving Las Vegas with vehicles ready to drive today. Financing available, cash offers welcome.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="tel:7023764436">Call Now</a>
+            <a class="btn btn-secondary" href="mailto:hehernandezalavezsymbiotic@gmail.com">Email Us</a>
+            <a class="btn btn-secondary" href="#inventory">View Inventory</a>
           </div>
         </div>
-        <div class="hero-card">
-          <h2>Contact</h2>
-          <p><strong>Enrique</strong></p>
-          <p>Phone: <strong>702-376-4436</strong></p>
-          <p>Email: <strong>hehernandezalavezsymbiotic@gmail.com</strong></p>
+      </div>
+    </section>
+
+    <section class="ecosystem" id="ecosystem">
+      <div class="container">
+        <div class="section-head">
+          <h2>COS Ecosystem</h2>
+          <p>One brand, multiple divisions. Motors is one pillar of a larger COS platform.</p>
         </div>
-      </section>
+        <div class="ecosystem-grid">
+          <figure class="ecosystem-visual">
+            <img src="assets/images/cos-ecosystem-visual.png" alt="COS ecosystem visual overview">
+            <figcaption>Global operations and service divisions powering COS.</figcaption>
+          </figure>
+          <div class="pillars">
+            <article class="pillar">
+              <h3>Business Solutions</h3>
+              <p>Consulting, logistics, and administration support.</p>
+            </article>
+            <article class="pillar">
+              <h3>Security Services</h3>
+              <p>Guard services, surveillance, and risk management.</p>
+            </article>
+            <article class="pillar">
+              <h3>Facility Management</h3>
+              <p>Maintenance, cleaning, and on-site support.</p>
+            </article>
+            <article class="pillar">
+              <h3>Global Operations</h3>
+              <p>International projects, field services, and technical support.</p>
+            </article>
+            <article class="pillar">
+              <h3>Aviation + Transport</h3>
+              <p>Global transport and logistics readiness.</p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
 
-      <section id="inventory" class="inventory">
-        <h2>Inventory</h2>
-        <p>All details below. Message to schedule a test drive.</p>
-        <div class="grid" id="inventory-grid"></div>
+    <section class="inventory" id="inventory" aria-label="COS Motors inventory">
+      <div class="container">
+        <div class="section-head">
+          <h2>COS Motors Inventory</h2>
+          <p>Detailed listings with highlights, specs, and requirements.</p>
+        </div>
+        <div class="inventory-grid" id="inventory-grid"></div>
         <noscript>
-          <p class="noscript">JavaScript is required to view the inventory.</p>
+          <p class="noscript">JavaScript is required to view the detailed inventory.</p>
         </noscript>
-      </section>
-    </main>
+      </div>
+    </section>
 
-    <footer>
-      &copy; COS Motors 2026 - All Rights Reserved
-    </footer>
-  </div>
+    <section class="inventory" id="additional-inventory" aria-label="Additional inventory">
+      <div class="container">
+        <div class="section-head">
+          <h2>Additional Inventory</h2>
+          <p>More vehicles and photo galleries from our extended lineup.</p>
+        </div>
+        <div class="inventory-grid" id="gallery-grid"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    Vegaz Auto Sales LLC | COS Motors | Las Vegas, NV | Se Habla Espanol - Financing Available
+  </footer>
 
   <template id="vehicle-card-template">
-    <article class="car-card">
-      <div class="car-image">
-        <img src="" alt="" loading="lazy" decoding="async">
-      </div>
-      <div class="car-body">
+    <article class="vehicle-card detail-card">
+      <header class="vehicle-header">
         <h3 data-title></h3>
-        <p class="meta" data-meta></p>
+        <span class="price-tag" data-tag></span>
+      </header>
+      <div class="vehicle-gallery single">
+        <img data-image src="" alt="" loading="lazy" decoding="async">
+      </div>
+      <div class="vehicle-body">
+        <p class="vehicle-meta" data-meta></p>
         <div class="badge-row" data-badges></div>
-        <div class="card-sections" data-sections></div>
+        <div class="detail-sections" data-sections></div>
+      </div>
+    </article>
+  </template>
+
+  <template id="gallery-card-template">
+    <article class="vehicle-card gallery-card">
+      <header class="vehicle-header">
+        <h3 data-title></h3>
+        <span class="price-tag" data-tag></span>
+      </header>
+      <div class="vehicle-gallery" data-gallery></div>
+      <div class="vehicle-body">
+        <ul class="vehicle-features" data-features></ul>
+        <div class="vehicle-contact" data-contact></div>
       </div>
     </article>
   </template>
@@ -78,3 +143,5 @@
   <script src="assets/js/inventory.js" defer></script>
 </body>
 </html>
+
+
